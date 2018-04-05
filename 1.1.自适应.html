@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三栏布局</title>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* float */
+        .main article{
+            height: 100px;
+            margin-bottom: 50px;
+        }
+        .main div{
+            height: 100px;
+        }
+        .left{
+            float: left;
+            background: red;
+            width: 300px;
+        }
+        .right{
+            float: right;
+            background: red;
+            width: 300px;
+        }
+        .center{
+            background: yellow;
+            /* 创建BFC，解决内容溢出到左侧的问题 */
+            overflow: auto;
+        }
+        
+        /* position */
+        .main2 article{
+            height: 100px;
+            margin-bottom: 50px;
+        }
+        .main2 div{
+            position: absolute;
+            height: 100px;
+        }
+        .left2{
+            left: 0;
+            background: red;
+            width: 300px;
+        }
+        .right2{
+            right: 0;
+            background: red;
+            width: 300px;
+        }
+        .center2{
+            left: 300px;
+            right: 300px;
+            background: yellow;
+        }
+        
+        /* flex-box */
+        .main3 article{
+            display: flex;
+            height: 100px;
+            margin-bottom: 50px;
+        }
+        .main3 div{
+            height: 100px;
+        }
+        .left3{
+            background: red;
+            width: 300px;
+        }
+        .center3{
+            flex:1;
+            background: yellow;
+        }
+        .right3{
+            background: red;
+            width: 300px;
+        }
+
+        /* table */
+        .main4 article{
+            display: table;
+            height: 100px;
+            margin-bottom: 50px;
+            /* 需要100%，不然中间是最小宽度 */
+            width: 100%;
+        }
+        .main4 div{
+            height: 100px;
+            display: table-cell;
+        }
+        .left4{
+            background: red;
+            width: 300px;
+        }
+        .center4{
+            background: yellow;
+        }
+        .right4{
+            background: red;
+            width: 300px;
+        }
+
+        /* grid */
+        .main5 article{
+            display: grid;
+            grid-template-rows: 100px;
+            grid-template-columns: 300px auto 300px;
+            margin-bottom: 50px;
+            /* 需要100%，不然中间是最小宽度 */
+            width: 100%;
+        }
+        
+        .left5{
+            background: red;
+        }
+        .center5{
+            background: yellow;
+        }
+        .right5{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="main">
+        <article>
+            <div class="left">float左侧1</div>
+            <div class="right">float右侧1</div>
+            <!-- 中间部分必须写在最后，不然会导致right换行 -->
+            <div class="center">
+                <h5>
+                    float中间1
+                </h5>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+                <p>这是float中间部分</p>
+
+            </div>
+        </article>
+    </section> 
+    <section class="main2">
+        <article>
+            <div class="left2">position左侧2</div>
+            <div class="center2">position中间2</div>
+            <div class="right2">position右侧2</div>
+        </article>
+    </section> 
+    <section class="main3">
+        <article>
+            <div class="left3">flex左侧3</div>
+            <div class="center3">flex中间3</div>
+            <div class="right3">flex右侧3</div>
+        </article>
+    </section> 
+    <section class="main4">
+        <article>
+            <div class="left4">table左侧4</div>
+            <div class="center4">table中间4</div>
+            <div class="right4">table右侧4</div>
+        </article>
+    </section> 
+    <section class="main5">
+        <article>
+            <div class="left5">grid左侧5</div>
+            <div class="center5">grid中间5</div>
+            <div class="right5">grid右侧5</div>
+        </article>
+    </section> 
+</body>
+</html>

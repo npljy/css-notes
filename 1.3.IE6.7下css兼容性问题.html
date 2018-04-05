@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1、h5标签兼容
+            1）（不推荐）document.createElement("header")，然后 样式设置样式
+            2）（推荐）html5shiv
+
+        2、父级的高度没有算入子元素的高度，
+        解决：
+            触发BFC和haslayout，添加样式 overflow:hidden
+        3、清除浮动：
+            父元素添加微元素 ::after
+            ::after{
+                content:'.';
+                width:100%;
+                height  0;
+                max-height:0;
+                clear:both;
+                visibility:hidden;
+                display:block;
+            }
+
+        4、两个子元素设置浮动，两个子元素的子元素是块元素，会撑满一行，
+        解决：
+            需要给 两个子元素的子元素 也加上浮动
+
+        5、两个块元素，第一个设置左浮动，第二个设置margin-left等于第一个的宽度中间会产生缝隙
+        解决：
+            两个都用浮动
+
+        6、子元素宽高超过父元素的，IE6子级会撑大父级
+        解决：
+            不建议这么写
+
+        7、p，td，h 标签包含块级元素问题，块元素会变成同级
+        解决：
+            不能嵌套块元素
+
+        8、margin传递问题（编剧重叠问题）
+
+            1）子元素的margin-top会和父元素的margin-top 重叠
+        解决：
+            触发父元素的BFC和haslayout
+
+            2）同级元素的margin-bottom和margin-top重叠，取得是最大值
+        解决：
+            1、使用同一方向的margin
+            2、单独设置
+
+        9、浮动元素设置margin-left，产生双倍边距
+        解决：
+            针对IE6、7 添加 *display:inline;
+
+        10、li的子元素都浮动，li之间会产生4px距离
+        解决：
+            针对IE6、7 添加垂直对齐 verticle-align：top
+        
+        11、两个浮动元素之间有注释或者内联元素，并且宽度和 与父级元素相差不超过3px
+        解决：
+            1）两个浮动元素中间避免出现内联元素或者注释
+            2）与父级元素宽度相差3px及以上
+            
+
+     -->
+</body>
+</html>
